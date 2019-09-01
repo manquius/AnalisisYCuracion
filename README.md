@@ -24,7 +24,8 @@ Los notebooks corren:
 
   * Construyendo una imagen propia:
 
-        docker build -t limpieza . && docker run -it --rm -v $PWD/output:/home/jovyan/work/output -e NB_UID=`id -u` limpieza
+        docker build -t limpieza . -f DockerfileLimpieza && docker run limpieza:latest -it --rm -v $PWD/output:/home/jovyan/work/output -e NB_UID=`id -u`
+
 * con Jupyter Stacks (probado)
 
         docker run -it --rm -v $PWD:/home/jovyan/work -e NB_UID=`id -u` -p 8888:8888 jupyter/scipy-notebook
